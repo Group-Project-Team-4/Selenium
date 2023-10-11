@@ -1,1 +1,1 @@
-# CSC256 Team 4 Group Project
+# CSC256 Team 4 Selenium Lab
