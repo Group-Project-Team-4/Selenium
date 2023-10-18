@@ -1,7 +1,9 @@
 """
-   - Example usecase of selenium feel free to add onto this to test more feature of selenium
-   - Please make a new branch to make any changes! 
-   - We should be utilizing all the tools GitHub has to offer us
+   - Example usecase of selenium feel free to add onto this to test more feature of selenium.
+   - Please make a new branch to make any changes!
+   - Then when you are sure there are no bugs and your code is to Pylint standard, 
+         you should make a pull request.
+   - We should be utilizing all the tools GitHub has to offer us.
 """
 import time
 from selenium import webdriver
