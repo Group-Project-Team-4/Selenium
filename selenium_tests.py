@@ -1,4 +1,8 @@
-"""Example usecase of selenium feel free to add onto this to test more feature of selenium"""
+"""
+   - Example usecase of selenium feel free to add onto this to test more feature of selenium
+   - Please make a new branch to make any changes! 
+   - We should be utilizing all the tools GitHub has to offer us
+"""
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
