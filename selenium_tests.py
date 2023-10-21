@@ -18,7 +18,7 @@ from selenium.common.exceptions import NoSuchElementException
 def main() -> None:
     """Web Driver Function"""
     driver = webdriver.Chrome()
-    driver.get('https://www.google.com/')  # Enter webapp url
+    driver.get('http://localhost:5000/')  # Enter webapp url
 
     try:
         google_search = driver.find_element(By.ID, "APjFqb")
