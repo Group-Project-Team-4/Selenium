@@ -1,5 +1,5 @@
 """
-   - Example usecase of selenium feel free to add onto this to test more feature of selenium.
+   - Example use case of selenium feel free to add onto this to test more feature of selenium.
    - Please make a new branch to make any changes!
    - Then when you are sure there are no bugs and your code is to Pylint standard, 
          you should make a pull request.
@@ -8,20 +8,17 @@
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
 
+
 # Make sure to download ChromeDriver and add to PATH or if using Firefox see selenium documentation
-# ChromeDriver must be opened before running script (open from terminal ./chromedriver.exe)
 # ChromeDriver: https://googlechromelabs.github.io/chrome-for-testing/#stable
 
 def main() -> None:
     """Web Driver Function"""
-    service = Service('C:/webdrivers/chromedriver.exe')
-    service.start()
-    driver = webdriver.Remote(service.service_url)
-    driver.get('http://www.google.com/') # Enter webapp url
+    driver = webdriver.Chrome()
+    driver.get('https://www.google.com/')  # Enter webapp url
 
     try:
         google_search = driver.find_element(By.ID, "APjFqb")
@@ -34,8 +31,9 @@ def main() -> None:
     except NoSuchElementException as err:
         print(err)
 
-    time.sleep(60) # This is here as temp
+    time.sleep(60)  # This is here as temp
     driver.quit()
+
 
 if __name__ == "__main__":
     main()
