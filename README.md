@@ -52,10 +52,11 @@ Selenium requires a web driver to interface with a web browser.
    - Open a terminal or command prompt at the directories location
 
 3. Run the program
-   - Enter `python nate_login_post_test.py` or `python3 nate_login_post_test.py`
+   - Enter to register `python cody_register_edit_post_test.py` or `python3 cody_register_edit_post_test.py`
+   - Enter to login `python nate_login_post_test.py` or `python3 nate_login_post_test.py`
    - Chrome should open and complete the test without any errors
 
-4. Debugging
+5. Debugging
    - Ensure you have the correct web driver for you browser
    - Ensure it's a environment variable and in your PATH
    - If problems continue, read selenium and your specific  
