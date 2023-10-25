@@ -8,6 +8,7 @@
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
 
 # Make sure to download ChromeDriver and add to PATH or if using Firefox see selenium documentation
@@ -20,7 +21,24 @@ def main() -> None:
     driver.get('http://localhost:5000/')  # Enter webapp url
 
     try:
-        # Login
+# Register
+        register = driver.find_element(By.ID, "base_register_anchor")
+        time.sleep(3)
+        register.click()
+        time.sleep(3)
+        
+        username_input = driver.find_element(By.ID, "register_username_textinput")
+        username_input.send_keys("nate")
+        time.sleep(3)
+        
+        password_input = driver.find_element(By.ID, "register_password_textinput")
+        password_input.send_keys("12345")
+        time.sleep(3)
+        
+        password_input.send_keys(Keys.ENTER)
+        time.sleep(2)
+
+# Login
         login_link = driver.find_element(By.ID, "base_login_anchor")
         login_link.click()
 
@@ -33,7 +51,7 @@ def main() -> None:
         login_button = driver.find_element(By.ID, "login_submit_button")
         login_button.click()
 
-        # Create a post
+# Create a post
         new_post_link = driver.find_element(By.ID, "index_new_post_anchor")
         new_post_link.click()
 
@@ -53,7 +71,47 @@ def main() -> None:
         # Give time to view post
         time.sleep(5)
 
-        # Logout
+# Edit a post
+        edit_button = driver.find_element(By.ID, "index_update_post_anchor")
+        edit_button.click()
+        time.sleep(2)
+        
+        update_title = driver.find_element(By.ID, "update_title_textinput")
+        update_title.clear()
+        time.sleep(2)
+        update_title.send_keys("Click the link below to get started!")
+        time.sleep(2)
+        
+        submit_button = driver.find_element(By.ID, "update_submit_button")
+        submit_button.click()
+        time.sleep(2)
+        
+# Delete a post
+        edit_button = driver.find_element(By.ID, "index_update_post_anchor")
+        edit_button.click()
+        time.sleep(2)
+        
+        delete_button = driver.find_element(By.ID, "update_delete_button")
+        delete_button.click()
+        time.sleep(2)
+        
+        # Handle alert
+        alert = driver.switch_to.alert
+        alert.accept()
+        time.sleep(2)
+        
+# Alert that all tests have completed succesfully
+        driver.execute_script('alert("All tests are complete, thank you!")')
+        time.sleep(3)
+
+        # Switchs focus to the new alert
+        alert = driver.switch_to.alert
+
+        # Presses "OK" to accept alert
+        alert.accept()
+        time.sleep(2)
+
+# Logout
         login_link.click()
         time.sleep(2)
 
