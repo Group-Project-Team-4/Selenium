@@ -7,6 +7,6 @@
 /dataSources/
 /dataSources.local.xml
 # VSCode
-/.vscode
-/.idea
-/geckodriver.log
+.vscode
+.idea
+geckodriver.log
