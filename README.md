@@ -1,4 +1,4 @@
-# Selenium Lab
+# Selenium Tutorial
 
 ## 1. Introduction
 
