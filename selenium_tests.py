@@ -6,6 +6,8 @@
    - We should be utilizing all the tools GitHub has to offer us.
 """
 import time
+import random
+import string
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -15,113 +17,131 @@ from selenium.common.exceptions import NoSuchElementException
 # ChromeDriver: https://googlechromelabs.github.io/chrome-for-testing/#stable
 
 
+def generate_random_card_number():
+    """Fake Credit Card Generator"""
+    credit_card = ""
+    for idx in range(16):
+        credit_card += random.choice(string.digits)
+    return credit_card
+
+USERNAME = f"user{random.randint(1, 100)}"
+# USERNAME = "nate123"
+PASSWORD = "12345"
+EMAIL = USERNAME + "@gmail.com"
+FULLNAME = "Ron Swanson"
+ADDRESS = f"{random.randint(1000, 10000)} main st, Raleigh, NC"
+CARD_NUMBER = generate_random_card_number()
+EXPIRATION = "08/25"
+CARD_PIN = random.randint(1000, 10000)
+
+
 def main() -> None:
     """Web Driver Function"""
     driver = webdriver.Chrome()
-    driver.get('http://localhost:5000/')  # Enter webapp url
+# Enter webapp url
+    driver.get('http://localhost:5000/')
 
     try:
-# Register
-        register = driver.find_element(By.ID, "base_register_anchor")
+        # Enter site
+        shop = driver.find_element(By.LINK_TEXT, "Shop Now")
+        shop.click()
+        time.sleep(0.25)
+    # Register
+        register = driver.find_element(By.LINK_TEXT, "Register")
         register.click()
-        time.sleep(1.5)
-        
-        username_input = driver.find_element(By.ID, "register_username_textinput")
-        username_input.send_keys("nate")
-        time.sleep(1.5)
-        
-        password_input = driver.find_element(By.ID, "register_password_textinput")
-        password_input.send_keys("12345")
-        time.sleep(1.5)
-        
-        password_input.send_keys(Keys.ENTER)
-        time.sleep(1.5)
+        time.sleep(0.25)
 
-# Login
+        username_input = driver.find_element(
+            By.ID, "register_username_textinput")
+        username_input.send_keys(USERNAME)
+        time.sleep(0.25)
+
+        password_input = driver.find_element(
+            By.ID, "register_password_textinput")
+        password_input.send_keys(PASSWORD)
+        time.sleep(0.25)
+
+        password_input.send_keys(Keys.ENTER)
+        time.sleep(0.25)
+
+    # Login
         login_link = driver.find_element(By.ID, "base_login_anchor")
         login_link.click()
-        time.sleep(1.5)
+        time.sleep(0.25)
 
         username_input = driver.find_element(By.ID, "login_username_textinput")
-        username_input.send_keys("nate")
-        time.sleep(1.5)
+        username_input.send_keys(USERNAME)
+        time.sleep(0.25)
 
         password_input = driver.find_element(By.ID, "login_password_textinput")
-        password_input.send_keys("12345")
-        time.sleep(1.5)
+        password_input.send_keys(PASSWORD)
+        time.sleep(0.25)
 
         login_button = driver.find_element(By.ID, "login_submit_button")
         login_button.click()
-        time.sleep(1.5)
+        time.sleep(0.25)
 
-# Create a post
-        new_post_link = driver.find_element(By.ID, "index_new_post_anchor")
-        new_post_link.click()
-        time.sleep(1.5)
+    # Shop for an item
+        enter_shop = driver.find_element(By.LINK_TEXT, "Shop Now")
+        enter_shop.click()
+        time.sleep(0.25)
 
-        title_input = driver.find_element(By.ID, "post_title_textinput")
-        title_input.send_keys("How to use selenium for automated testing!")
-        time.sleep(1.5)
+        url = "/shop/7"
+        watch_item = driver.find_element(By.XPATH, '//a[@href="'+url+'"]')
+        watch_item.click()
+        time.sleep(0.25)
 
-        body_input = driver.find_element(By.ID, "post_body_textinput")
-        body_input.send_keys("Please go to our github repository at this link to learn \
-                             how to run automation tests on your web application, \
-                             just like this one! \
-                             \n https://github.com/Group-Project-Team-4/Selenium")
-        time.sleep(1.5)
+        add_to_cart = driver.find_element(By.ID, "add-to-cart-button")
+        add_to_cart.click()
+        time.sleep(0.25)
 
-        # Submit the post
-        save_button = driver.find_element(By.ID, "post_submit_button")
-        save_button.click()
-        time.sleep(1.5)
+    # Checkout
+        checkout = driver.find_element(By.LINK_TEXT, "Checkout")
+        checkout.click()
+        time.sleep(0.25)
 
-        # Give time to view post
-        time.sleep(2)
+        email = driver.find_element(By.ID, "email")
+        email.send_keys(EMAIL)
+        time.sleep(0.25)
 
-# Edit a post
-        edit_button = driver.find_element(By.ID, "index_update_post_anchor")
-        edit_button.click()
-        time.sleep(1.5)
-        
-        update_title = driver.find_element(By.ID, "update_title_textinput")
-        update_title.clear()
-        time.sleep(1.5)
-        
-        update_title.send_keys("Click the link below to get started!")
-        time.sleep(1.5)
-        
-        submit_button = driver.find_element(By.ID, "update_submit_button")
-        submit_button.click()
-        time.sleep(1.5)
-        
-# Delete a post
-        edit_button = driver.find_element(By.ID, "index_update_post_anchor")
-        edit_button.click()
-        time.sleep(1.5)
-        
-        delete_button = driver.find_element(By.ID, "update_delete_button")
-        delete_button.click()
-        time.sleep(1.5)
-        
-        # Handle alert
-        alert = driver.switch_to.alert
-        alert.accept()
-        time.sleep(1.5)
-        
-# Alert that all tests have completed succesfully
+        fullname = driver.find_element(By.ID, "name")
+        fullname.send_keys(FULLNAME)
+        time.sleep(0.25)
+
+        address = driver.find_element(By.ID, "address")
+        address.send_keys(ADDRESS)
+        time.sleep(0.25)
+
+        card_number = driver.find_element(By.ID, "credit-card")
+        card_number.send_keys(CARD_NUMBER)
+        time.sleep(0.25)
+
+        expiration = driver.find_element(By.ID, "expiration-date")
+        expiration.send_keys(EXPIRATION)
+        time.sleep(0.25)
+
+        card_pin = driver.find_element(By.ID, "cvc")
+        card_pin.send_keys(CARD_PIN)
+
+        purchase = driver.find_element(By.CLASS_NAME, "checkout-button")
+        purchase.click()
+        time.sleep(0.25)
+
+    # Alert that all tests have completed succesfully
         driver.execute_script('alert("All tests are complete, thank you!")')
-        time.sleep(1.5)
+        time.sleep(3)
 
         # Switchs focus to the new alert
         alert = driver.switch_to.alert
 
         # Presses "OK" to accept alert
         alert.accept()
-        time.sleep(1.5)
+        time.sleep(0.25)
 
-# Logout
-        login_link.click()
-        time.sleep(1.5)
+    # Logout
+        logout = driver.find_element(By.ID, "base_logout_anchor")
+        logout.click()
+        time.sleep(0.25)
 
     except NoSuchElementException as err:
         print(err)
