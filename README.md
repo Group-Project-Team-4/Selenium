@@ -43,18 +43,18 @@ Selenium requires a web driver to interface with a web browser.
    + type 'import selenium'
    If there are no errors and you are returned to the command prompt without any messages, Selenium is installed correctly.
 
-## 4. How to run the program
+## 4. How to run the test scripts
 1. Must have a valid URL or Web application to test
    - You can find one here: [Sample Web Application](https://github.com/Group-Project-Team-4/Web-App)
 
 2. In clone this repository
    - Enter the directory of the cloned repository
-   - Open a terminal or command prompt at the directories location
+   - Open a terminal or command prompt at the repositories location
 
 3. Run the program
-   - Enter to register `python cody_register_edit_post_test.py` or `python3 cody_register_edit_post_test.py`
-   - Enter to login `python nate_login_post_test.py` or `python3 nate_login_post_test.py`
-   - Chrome should open and complete the test without any errors
+   - Test script `test_script_1.py` accomplishes register, login, adding an item to cart, checking out, and purchasing
+   - Test script `test_script_2.py` accomplishes...
+   - Chrome should automatically open and complete the test without any errors
 
 5. Debugging
    - Ensure you have the correct web driver for you browser

@@ -36,6 +36,7 @@ CARD_PIN = random.randint(1000, 10000)
 
 
 def main() -> None:
+    start_time = time.time()
     """Web Driver Function"""
     driver = webdriver.Chrome()
 # Enter webapp url
@@ -45,10 +46,12 @@ def main() -> None:
         # Enter site
         shop = driver.find_element(By.LINK_TEXT, "Shop Now")
         shop.click()
+        driver.save_screenshot("./screenshots_test1/enter_site.png")
         time.sleep(0.25)
     # Register
         register = driver.find_element(By.LINK_TEXT, "Register")
         register.click()
+        driver.save_screenshot("./screenshots_test1/register_page.png")
         time.sleep(0.25)
 
         username_input = driver.find_element(
@@ -61,7 +64,9 @@ def main() -> None:
         password_input.send_keys(PASSWORD)
         time.sleep(0.25)
 
+        driver.save_screenshot("./screenshots_test1/register.png")
         password_input.send_keys(Keys.ENTER)
+        driver.save_screenshot("./screenshots_test1/register_success.png")
         time.sleep(0.25)
 
     # Login
@@ -77,27 +82,33 @@ def main() -> None:
         password_input.send_keys(PASSWORD)
         time.sleep(0.25)
 
+        driver.save_screenshot("./screenshots_test1/login.png")
         login_button = driver.find_element(By.ID, "login_submit_button")
         login_button.click()
+        driver.save_screenshot("./screenshots_test1/login_success.png")
         time.sleep(0.25)
 
     # Shop for an item
         enter_shop = driver.find_element(By.LINK_TEXT, "Shop Now")
         enter_shop.click()
+        driver.save_screenshot("./screenshots_test1/enter_shop.png")
         time.sleep(0.25)
 
         url = "/shop/7"
         watch_item = driver.find_element(By.XPATH, '//a[@href="'+url+'"]')
         watch_item.click()
+        driver.save_screenshot("./screenshots_test1/watch.png")
         time.sleep(0.25)
 
         add_to_cart = driver.find_element(By.ID, "add-to-cart-button")
         add_to_cart.click()
+        driver.save_screenshot("./screenshots_test1/watch_in_cart.png")
         time.sleep(0.25)
 
     # Checkout
         checkout = driver.find_element(By.LINK_TEXT, "Checkout")
         checkout.click()
+        driver.save_screenshot("./screenshots_test1/checkout.png")
         time.sleep(0.25)
 
         email = driver.find_element(By.ID, "email")
@@ -123,11 +134,14 @@ def main() -> None:
         card_pin = driver.find_element(By.ID, "cvc")
         card_pin.send_keys(CARD_PIN)
 
+        driver.save_screenshot("./screenshots_test1/checkout_form_filled.png")
         purchase = driver.find_element(By.CLASS_NAME, "checkout-button")
         purchase.click()
+        driver.save_screenshot("./screenshots_test1/items_purchased.png")
         time.sleep(0.25)
 
     # Alert that all tests have completed succesfully
+        driver.save_screenshot("./screenshots_test1/end_test.png")
         driver.execute_script('alert("All tests are complete, thank you!")')
         time.sleep(3)
 
@@ -142,6 +156,11 @@ def main() -> None:
         logout = driver.find_element(By.ID, "base_logout_anchor")
         logout.click()
         time.sleep(0.25)
+
+        end_time = time.time()
+
+        execution_time = end_time - start_time
+        print(execution_time)
 
     except NoSuchElementException as err:
         print(err)
