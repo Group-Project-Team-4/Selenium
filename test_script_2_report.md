@@ -15,7 +15,7 @@
 - **Status:** Pass
 - **Description:** Enter site, register, login, add multiple items to the cart, remove the items from cart,
     attempt to checkout without items, logout, close browser
-- **Execution Time:** 20.50 seconds
+- **Execution Time:** 16.91 seconds
 - **Logs:** Execution time in seconds
 
 
