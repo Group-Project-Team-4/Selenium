@@ -72,7 +72,7 @@
 
 + The Selenium Testing Framework SRS provides a clear and detailed outline of the functional and non-functional requirements. This framework aims to empower automated testing for web applications, ensuring efficiency, scalability, and reliability in the testing process.
 
-<h3>Appendices</h4>
+<h3>Appendices</h3>
 
 **8.1 Sample Test Scenarios**
 
