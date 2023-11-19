@@ -64,60 +64,60 @@ Selenium requires a web driver to interface with a web browser.
    - Make an issue on this repository
 
 5. Start the session
-   - `driver = webdriver.Chrome()`
+   `driver = webdriver.Chrome()`
 
 6. Take action on browser
-   - `driver.get('http://localhost:5000/')`
+   `driver.get('http://localhost:5000/')`
 
 7. Register for an account
    - Find the register link by the link text, then click the link and save a screenshot to verify the register page displayed correctly.
  
-   - `register = driver.find_element(By.LINK_TEXT, "Register")
-   - register.click()
-   - driver.save_screenshot("./screenshots_test1/register_page.png")
-   - time.sleep(0.25)`
+   `register = driver.find_element(By.LINK_TEXT, "Register")
+   register.click()
+   driver.save_screenshot("./screenshots_test1/register_page.png")
+   time.sleep(0.25)`
 
 8. Login
    Find the login link by the login text, then click the link and save a screenshot to verify the login page displayed correctly.
 
-   - `login_link = driver.find_element(By.ID, "base_login_anchor")
-   - login_link.click()
-   - time.sleep(0.25)`
+   `login_link = driver.find_element(By.ID, "base_login_anchor")
+   login_link.click()
+   time.sleep(0.25)`
 
 9. Shop for an item
    Enter the shop and click the Shop Now link, proceed to add an item to the cart and save a screen shot to verify the shop page displayed correctly. 
 
-   - `enter_shop = driver.find_element(By.LINK_TEXT, "Shop Now")
-   - enter_shop.click()
-   - driver.save_screenshot("./screenshots_test1/enter_shop.png")
-   - time.sleep(0.25)`
+   `enter_shop = driver.find_element(By.LINK_TEXT, "Shop Now")
+   enter_shop.click()
+   driver.save_screenshot("./screenshots_test1/enter_shop.png")
+   time.sleep(0.25)`
 
-   - `add_to_cart = driver.find_element(By.ID, "add-to-cart-button")
-   - add_to_cart.click()
-   - driver.save_screenshot("./screenshots_test1/watch_in_cart.png")
-   - time.sleep(0.25)`
+   `add_to_cart = driver.find_element(By.ID, "add-to-cart-button")
+   add_to_cart.click()
+   driver.save_screenshot("./screenshots_test1/watch_in_cart.png")
+   time.sleep(0.25)`
 
 10. Checkout
    Find the checkout link by the link text, then click the link and save a screenshot to verify the checkout page displayed correctly.
 
-   - `checkout = driver.find_element(By.LINK_TEXT, "Checkout")
-   - checkout.click()
-   - driver.save_screenshot("./screenshots_test1/checkout.png")
-   - time.sleep(0.25)`
+   `checkout = driver.find_element(By.LINK_TEXT, "Checkout")
+   checkout.click()
+   driver.save_screenshot("./screenshots_test1/checkout.png")
+   time.sleep(0.25)`
 
 11. Alert that all tests have completed successfully.
     Verify the alert message displayed correctly and take a screenshot.
 
-   - `driver.save_screenshot("./screenshots_test1/end_test.png")
-   - driver.execute_script('alert("All tests are complete, thank you!")')
-   - time.sleep(3)`
+   `driver.save_screenshot("./screenshots_test1/end_test.png")
+   driver.execute_script('alert("All tests are complete, thank you!")')
+   time.sleep(3)`
 
 12. Logout
    Find the logout link by the link text, then click the link and save a screenshot to verify the log out page displayed correctly.
 
-   - `logout = driver.find_element(By.ID, "base_logout_anchor")
-   - logout.click()
-   - time.sleep(0.25)`
+   `logout = driver.find_element(By.ID, "base_logout_anchor")
+   logout.click()
+   time.sleep(0.25)`
 
 13. End session
    - `driver.quit()`
