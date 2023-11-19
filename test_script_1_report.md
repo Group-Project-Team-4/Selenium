@@ -23,4 +23,4 @@ Can be found in the `screenshots_test1` directory
 
 ## Conclusion
 
-This summarizes the test execution of `test_sript_1` resulting in 0 errors and passes all requirements
+This summarizes the test execution of `test_script_1` resulting in 0 errors and passes all requirements
