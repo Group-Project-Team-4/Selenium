@@ -63,15 +63,16 @@ Selenium requires a web driver to interface with a web browser.
      webdriver documentation
    - Make an issue on this repository
 
-**5. Start the session**
+## 4. Selenium usage in our project
+**1. Start the session**
 
    `driver = webdriver.Chrome()`
 
-**6. Take action on browser**
+**2. Take action on browser**
 
    `driver.get('http://localhost:5000/')`
 
-**7. Register for an account**
+**3. Register for an account**
 
    Find the register link by the link text, then click the link and save a screenshot to verify the register page displayed correctly.
  
@@ -80,7 +81,7 @@ Selenium requires a web driver to interface with a web browser.
    driver.save_screenshot("./screenshots_test1/register_page.png")
    time.sleep(0.25)`
 
-**8. Login**
+**4. Login**
 
    Find the login link by the login text, then click the link and save a screenshot to verify the login page displayed correctly.
 
@@ -88,7 +89,7 @@ Selenium requires a web driver to interface with a web browser.
    login_link.click()
    time.sleep(0.25)`
 
-**9. Shop for an item**
+**5. Shop for an item**
 
    Enter the shop and click the Shop Now link, proceed to add an item to the cart and save a screen shot to verify the shop page displayed correctly. 
 
@@ -102,7 +103,7 @@ Selenium requires a web driver to interface with a web browser.
    driver.save_screenshot("./screenshots_test1/watch_in_cart.png")
    time.sleep(0.25)`
 
-**10. Checkout**
+**6. Checkout**
 
    Find the checkout link by the link text, then click the link and save a screenshot to verify the checkout page displayed correctly.
 
@@ -111,7 +112,7 @@ Selenium requires a web driver to interface with a web browser.
    driver.save_screenshot("./screenshots_test1/checkout.png")
    time.sleep(0.25)`
 
-**11. Alert that all tests have completed successfully.**
+**7. Alert that all tests have completed successfully.**
 
    Verify the alert message displayed correctly and take a screenshot.
 
@@ -119,7 +120,7 @@ Selenium requires a web driver to interface with a web browser.
    driver.execute_script('alert("All tests are complete, thank you!")')
    time.sleep(3)`
 
-**12. Logout**
+**8. Logout**
 
    Find the logout link by the link text, then click the link and save a screenshot to verify the log out page displayed correctly.
 
@@ -127,7 +128,7 @@ Selenium requires a web driver to interface with a web browser.
    logout.click()
    time.sleep(0.25)`
 
-**13. End session**
+**9. End session**
 
    `driver.quit()`
 
