@@ -52,6 +52,7 @@ Selenium requires a web driver to interface with a web browser.
    - Open a terminal or command prompt at the repositories location
 
 **3. Run the program**
+   - `python <Test Filename here>`
    - Test script `test_script_1.py` accomplishes register, login, adding an item to cart, checking out, and purchasing
    - Test script `test_script_2.py` accomplishes register, login, adding items to cart, removing items from cart, attempt empty checkout, and logout
    - Chrome should automatically open and complete the test without any errors
