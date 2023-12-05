@@ -10,3 +10,6 @@
 .vscode
 .idea
 geckodriver.log
+
+# Remove .DS_Store files from being tracked
+.DS_Store
